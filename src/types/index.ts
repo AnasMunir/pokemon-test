@@ -7,11 +7,24 @@ export interface Pokemon {
   weight: number;
   abilities: string[];
 }
-
-export interface PokemonWithDetails extends Pokemon {
+// ?? type optimizations
+export interface PokemonWithDetails {
+  id: number;
+  name: string;
+  image: string;
+  types: string[];
+  height: number;
+  weight: number;
+  abilities: string[];
   stats: PokemonStat[];
   moves: string[];
   species: string;
+}
+
+// ?? type optimizations
+export interface PokemonStatsAndAbilities {
+  abilities: string[];
+  stats: PokemonStat[];
 }
 
 export interface PokemonStat {
@@ -26,4 +39,4 @@ export interface PokemonContextType {
   favorites: number[];
   toggleFavorite: (id: number) => void;
   isFavorite: (id: number) => boolean;
-} 
+}
